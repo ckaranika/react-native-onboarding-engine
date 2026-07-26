@@ -1,0 +1,1 @@
+export type OnboardingStackParamList = Record<string, object | undefined>;

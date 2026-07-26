@@ -6,7 +6,7 @@
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
     ".": {
-      "react-native-onboarding-engine-source": "./src/index.tsx",
+      "react-native-onboarding-engine-source": "./src/index.ts",
       "types": "./lib/typescript/src/index.d.ts",
       "default": "./lib/module/index.js"
     },
@@ -35,7 +35,11 @@
     "example": "yarn workspace react-native-onboarding-engine-example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "keywords": [
     "react-native",
@@ -56,18 +60,23 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@react-native/babel-preset": "0.85.0",
+    "@react-navigation/native": "^7.3.14",
+    "@react-navigation/native-stack": "^7.18.6",
     "@types/react": "^19.2.0",
     "del-cli": "^7.0.0",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.7.0",
+    "prettier": "^3.9.6",
     "react": "19.2.3",
     "react-native": "0.85.0",
     "react-native-builder-bob": "^0.43.0",
+    "react-native-safe-area-context": "^5.8.0",
     "turbo": "^2.9.16",
-    "typescript": "^6.0.3"
-  },
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.65.0"
   },
   "workspaces": [
     "example"
@@ -96,5 +105,16 @@
     "languages": "js",
     "tools": [],
     "version": "0.63.0"
+  },
+  "peerDependencies": {
+    "@react-navigation/native": "^7.3.14",
+    "@react-navigation/native-stack": "^7.18.6",
+    "react": "*",
+    "react-native": "*",
+    "react-native-safe-area-context": "^5.8.0",
+    "react-native-screens": "^4.26.2"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^3.1.1"
   }
 }

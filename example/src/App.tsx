@@ -1,20 +1,19 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-onboarding-engine';
-
-const result = multiply(3, 7);
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { OnboardingNavigator, OnboardingProvider, OnboardingResume } from 'react-native-onboarding-engine';
+import { onboardingConfig } from './config';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <SafeAreaProvider>
+      <StatusBar barStyle="dark-content" />
+
+      <OnboardingProvider config={onboardingConfig}>
+        <NavigationContainer>
+          <OnboardingNavigator />
+        </NavigationContainer>
+      </OnboardingProvider>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
