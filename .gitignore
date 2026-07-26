@@ -41,11 +41,16 @@ project.xcworkspace
 local.properties
 android.iml
 
+# Android build output
+example/android/build/
+example/android/app/build/
+
 # Cocoapods
 #
 example/ios/Pods
 
 # Ruby
+.bundle/
 example/vendor/
 
 # node.js
